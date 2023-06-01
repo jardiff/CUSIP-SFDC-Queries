@@ -1,0 +1,53 @@
+\\Integration for Order Generation in SFDC. this will map the values that are required for our Orders to be generated in WORKDAY
+Select 
+Order.OrderNumber,  
+SBQQ__Contract__r.ContractNumber,
+Order.Account.Expanded_Account_ID__c,
+Order.Shipping_Contact__r.Name,
+Expanded_Contract_Id__c,
+Expanded_Order_Product_ID__c,
+Order.Expanded_Order_ID__c,
+Product2.Expanded_Product_ID__c,
+Order.Invoice_Note__c, 
+Order.PO_Number__c, 
+OrderItemNumber,
+SBQQ__RevisedOrderProduct__r.OrderItemNumber,
+Order.Type,
+Order.Status, 
+ServiceDate, 
+EndDate, 
+Product2.Name, 
+Product_Code__c, 
+SBQQ__BillingFrequency__c, 
+SBQQ__BillingType__c, 
+SBQQ__ChargeType__c, 
+Order.Account.Account_CRM_ID__c, 
+Order.Workday_Reference__c,
+UnitPrice, 
+SBQQ__OrderedQuantity__c,
+TotalPrice, 
+Line_Details_for_Invoice__c, 
+CreatedDate, 
+LastModifiedDate, 
+Product2.Revenue_Category__c, 
+Product2.Family, 
+Product2.Product_Family_Type__c, 
+Product2.Product_Type__c, 
+order.WorkdayOrder_ID__c, 
+Order.WorkdayModifiedDate__c,
+WorkdayOrderProduct_ID__c,
+WorkdayModifiedDate__c,
+Order.Expanded_Billing_Account_ID__c,
+Order.Expanded_Billing_Address_ID__c,
+Order.Expanded_Billing_Contact_ID__c,
+Order.Expanded_Shipping_Account_ID__c,
+Order.Expanded_Shipping_Address_ID__c,
+Order.Expanded_Shipping_Contact_ID__c,
+Order.Expanded_Billing_Split_ID__c
+from OrderItem
+Where Order.Status = 'Ready to Book' and 
+Order.TotalAmount != 0 and
+Order.Split_Billing_Shipping__c = false and
+Order.Transmit_to_Workday__c = true and 
+Product2.Exclude_from_Workday__c = false
+ORDER BY Order.OrderNumber ASC
