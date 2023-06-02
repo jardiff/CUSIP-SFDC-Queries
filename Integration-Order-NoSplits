@@ -1,4 +1,5 @@
-\\Integration for Order Generation in SFDC. this will map the values that are required for our Orders to be generated in WORKDAY
+//Integration for Order Generation in SFDC. this will map the values that are required for our Orders to be generated in WORKDAY
+
 Select 
 Order.OrderNumber,  
 SBQQ__Contract__r.ContractNumber,
