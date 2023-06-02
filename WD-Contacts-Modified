@@ -1,0 +1,13 @@
+//Query that retrieves any contact that has changed in the last 90 days and the fields of interest are updated
+select id, 
+FirstName, 
+LastName, 
+Email, 
+Contact_Status__c,  
+Workday_Billing_Contact__c, 
+Workday_Shipping_Contact__c, 
+WorkdayContact_ID__c, 
+WorkdayModifiedDate__c, 
+Contact_Modified_Date_for_WD__c 
+from contact
+where Contact_Modified_Date_for_WD__c = LAST_90_DAYS
