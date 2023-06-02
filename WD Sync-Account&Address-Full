@@ -1,0 +1,31 @@
+//Replacing the Address Report matches 5652 Records 2023-06-2
+
+select id,
+Account__r.Expanded_Account_ID__c,
+Account__r.Name, 
+Account__r.Account_Status__c,
+Expanded_Address_Id__c,
+Address_Number__c,
+Address_Status__c,
+Street__c,
+City__c,
+Submunicipality__c,
+Zip__c,
+State_Lookup__r.Workday_Full_ISO_Code__c,
+State_Lookup__r.Workday_ISO_Code__c,
+Country_Lookup__r.pw_ccpro__IsoCode_2__c,
+Country_Lookup__r.pw_ccpro__Continent__c,
+VAT_Number__c,
+VAT_Number_Present__c,
+VAT_Registration__c,
+Customer_Exemption_Certificate__c,
+Customer_Exemption_Certificate_Number__c,
+GST_HST_num__c,
+QST_num__c,
+WorkdayAddress_ID__c,
+WorkdayModifiedDate__c,
+LastModifiedDate
+from Address__c
+where IsActive__c = True OR
+Workday_Billing_Address__c = true or
+Workday_Shipping_Address__c = true
