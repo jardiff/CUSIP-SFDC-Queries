@@ -1,0 +1,19 @@
+//From the Report WD Sync - Contacts - Full, used to track the changes to the Contact records related to accounts. 5912 Records as of 2023-06-02 
+
+select Expanded_Contact_ID__c, 
+FirstName, 
+LastName, 
+Email,
+Contact_Status__c, 
+Contact_Modified_Date_for_WD__c, 
+Account.Expanded_Account_ID__c, 
+Account.Name,
+Account.Account_Status__c,
+WorkdayContact_ID__c,
+WorkdayModifiedDate__c,
+Account.WorkDayCustomer_ID__c
+FROM contact
+WHERE (Contact_Status__c= 'Active' AND IsActiveOverride__c = True) OR 
+WorkdayContact_ID__c != NULL OR
+Workday_Billing_Contact__c = True OR
+Workday_Shipping_Contact__c = true
