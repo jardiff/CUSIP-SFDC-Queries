@@ -1,2 +1,8 @@
-select id, Workday_Billing_Account__c, Workday_Shipping_Account__c,  Workday_Sold_To_Account__c, Account_Modified_Date_for_WD__c from Account
+select id, 
+name, 
+Workday_Billing_Account__c, 
+Workday_Shipping_Account__c,  
+Workday_Sold_To_Account__c,
+Account_Modified_Date_for_WD__c 
+from Account
 where Account_Modified_Date_for_WD__c = LAST_90_DAYS
