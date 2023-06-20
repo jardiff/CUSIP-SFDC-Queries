@@ -3,6 +3,7 @@ select
 Order.Account.FactSet_Firm_Type__c,
 Order.Account.Region__c, 
 Order.Account.Name,
+Order.Currency__c,
 Product_Code__c,
 ServiceDate, 
 EndDate, 
