@@ -1,0 +1,9 @@
+select id,Contract_Group__c,  Is_Migrated__c, Contract_ASV_Final_Year__c, SBQQ__Order__r.LastModifiedBy.Name, SBQQ__Order__c,
+Owner.Name, Status, 
+Contract_Group__r.Replacement_Opportunity__r.SBQQ__PrimaryQuote__r.SBQQ__StartDate__c,
+StartDate, EndDate, LastModifiedDate, LastModifiedBy.Name,
+(select id, Field, NewValue, OldValue, CreatedDate from Histories),
+(select id from SBQQ__AmendmentOpportunities__r)
+
+from Contract
+where Contract_Group__r.Replacement_Opportunity__c != null and Contract_Group__r.Replacement_Opportunity__r.SBQQ__PrimaryQuote__r.SBQQ__Status__c = 'OM Completed' and Status != 'Cancelled'
