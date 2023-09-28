@@ -51,6 +51,7 @@ from OrderItem
 Where Order.Status = 'Ready to Book' and 
 Order.TotalAmount != 0 and
 Order.Split_Billing_Shipping__c = false and
-Order.Transmit_to_Workday__c = true and 
-Product2.Exclude_from_Workday__c = false
+Product2.Exclude_from_Workday__c = false and
+(Order.Transmit_to_Workday__c = true or 
+Order.Override_Transmission_Date__c = true)
 ORDER BY Order.OrderNumber ASC
